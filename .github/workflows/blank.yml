@@ -1,0 +1,22 @@
+name: Pull Request Checks
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  check-pr-requirements:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check if milestone is set
+        run: |
+          MILESTONE=$(gh pr view ${{ github.event.pull_request.number }} --json milestone --jq '.milestone.title')
+          if [ -z "$MILESTONE" ]; then
+            echo "Error: No milestone set for this pull request"
+            exit 1
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
