@@ -12,7 +12,7 @@ jobs:
       - name: Validate branch name
         run: |
           BRANCH_NAME=${{ github.ref_name }}
-          if [[ ! $BRANCH_NAME =~ ^(feat|fix|hotfix|refactor|docs|test)\/.* ]]; then
+          if [[ ! $BRANCH_NAME =~ ^(feat|fix|perf|docs|style|refactor|test|build)\/.* ]]; then
             echo "Erro: O nome da branch '$BRANCH_NAME' não segue o padrão '<tipo>/', onde tipo deve ser: feat, fix, hotfix, refactor, docs ou test."
             exit 1
           else
