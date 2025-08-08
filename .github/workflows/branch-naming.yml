@@ -1,0 +1,20 @@
+name: Enforce Branch Naming
+on:
+  push:
+    branches:
+      - '**'
+jobs:
+  check-branch-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Validate branch name
+        run: |
+          BRANCH_NAME=${{ github.ref_name }}
+          if [[ ! $BRANCH_NAME =~ ^(feat|fix|perf|docs|style|refactor|test|build)\/.* ]]; then
+            echo "Erro: O nome da branch '$BRANCH_NAME' não segue o padrão '<tipo>/', onde tipo deve ser: feat, fix, hotfix, refactor, docs ou test."
+            exit 1
+          else
+            echo "Nome da branch '$BRANCH_NAME' está correto."
+          fi
