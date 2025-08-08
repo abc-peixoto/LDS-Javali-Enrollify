@@ -7,7 +7,14 @@ jobs:
   check-branch-name:
     runs-on: ubuntu-latest
     steps:
-      - name: Check branch name
-        uses: actions/branch-name@v1
-        with:
-          regex: ^(feat|fix|perf|docs|style|refactor|test|build)\/.*
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Validate branch name
+        run: |
+          BRANCH_NAME=${{ github.ref_name }}
+          if [[ ! $BRANCH_NAME =~ ^(feat|fix|hotfix|refactor|docs|test)\/.* ]]; then
+            echo "Erro: O nome da branch '$BRANCH_NAME' não segue o padrão '<tipo>/', onde tipo deve ser: feat, fix, hotfix, refactor, docs ou test."
+            exit 1
+          else
+            echo "Nome da branch '$BRANCH_NAME' está correto."
+          fi
