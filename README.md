@@ -1,4 +1,4 @@
-# Enrollify - Sistema de Matrículas Universitário
+# <p align="center">Enrollify - Sistema de Matrículas Universitário</p>
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/92ed0005-4025-4966-90ef-088a915ee546" alt="Enrollify">
