@@ -1,0 +1,13 @@
+name: Enforce Branch Naming
+on:
+  push:
+    branches:
+      - '**'
+jobs:
+  check-branch-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check branch name
+        uses: actions/branch-name@v1
+        with:
+          regex: ^(feat|fix|perf|docs|style|refactor|test|build)\/.*
