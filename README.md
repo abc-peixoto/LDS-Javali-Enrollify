@@ -2,8 +2,11 @@
 Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
 
 ## Integrantes
-* Nome completo do aluno 1
-* Nome completo do aluno 2
+
+* [Amanda Bueno Campos Peixoto](https://github.com/abc-peixoto)
+* [Gabriel Lucas Tinoco de Aguiar](https://github.com/gabrieltinoco)
+* [Gustavo Pimentel Carvalho Costa](https://github.com/gustavo-p0)
+
 * Nome completo do aluno 3
 * Nome completo do aluno 4
 
